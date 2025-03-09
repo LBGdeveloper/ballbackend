@@ -144,7 +144,7 @@ app.post('/saveLevel', authenticateToken ,async (req,res)=>{
             User.findOneAndUpdate({_id : req.user.id},{ $push: { createdGames: savedLvl._id } })
             .then(()=>console.log("updated user"))
             .catch(err=>{
-                res.status(400).json(err)
+                res.status(400).json({message:"name already taken"})
             });
         }).catch((err)=>{
             res.status(400).json(err)
