@@ -147,7 +147,7 @@ app.post('/saveLevel', authenticateToken ,async (req,res)=>{
                 res.status(400).json({message:"name already taken"})
             });
         }).catch((err)=>{
-            res.status(400).json(err)
+            res.status(400).json({message:"name already taken"})
         })
 })
 const makeReviewUpdateObj = (body,lvl)=>{
